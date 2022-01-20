@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       title: 'Welcome to Flutter',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white
         ),
       ),
       home: const RandomWords(),
@@ -41,11 +41,13 @@ class _RandomWordsState extends State<RandomWords> {
   final _biggerFont=const TextStyle(fontSize: 18);
 
 
+  final customAppBarShape=const RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15)));
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shape: customAppBarShape,
         title: Row(mainAxisSize: MainAxisSize.min,children: const [Text('i'),Text('StartUp',style: TextStyle(color: Colors.red),)],),
         centerTitle: true,
         actions: [
@@ -87,6 +89,7 @@ class _RandomWordsState extends State<RandomWords> {
 
           return Scaffold(
             appBar: AppBar(
+              shape: customAppBarShape,
               title: const Text('Saved Suggestions'),
             ),
             body: ListView(children: divided),
